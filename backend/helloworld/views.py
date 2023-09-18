@@ -8,3 +8,6 @@ def AnthHello(request):
 
 def JoHello(request):
     return HttpResponse("the spice girls")
+
+def KenHello(request):
+    return HttpResponse("Im just Ken, everywhere else id be a ten")
