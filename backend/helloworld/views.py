@@ -5,3 +5,6 @@ def AnthHello(request):
     return HttpResponse(
         '"Our name has nothing to do with the food" \n'  
         '- Seaweed')
+
+def JoHello(request):
+    return HttpResponse("the spice girls")
