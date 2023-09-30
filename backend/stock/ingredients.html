@@ -1,0 +1,4 @@
+{% for ingredient in ingredients %}
+    <p>{{ ingredient.name }}: {{ ingredient.quantity }} {{ ingredient.unit }}</p>
+{% endfor %}
+<a href="{% url 'restock_ingredient' %}">Restock</a>
