@@ -1,0 +1,8 @@
+#create database
+CREATE DATABASE restaurantdb;
+
+#connect to db in psql commandline
+psql -U postgres -h localhost -p <port> <database name>
+
+#create tables
+\i <path to create_db.sql>

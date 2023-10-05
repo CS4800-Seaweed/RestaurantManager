@@ -31,12 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'database.apps.DatabaseConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'stock'
 ]
 
 MIDDLEWARE = [
@@ -81,9 +83,6 @@ DATABASES = {
         'PASSWORD': 'centerpointe',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'TEST': {
-            'NAME': 'restaurantdbtest'
-        }
     }
 }
 
