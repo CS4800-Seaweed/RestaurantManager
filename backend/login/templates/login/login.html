@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Pointe Manager Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .login-container h1 {
+            margin: 0;
+        }
+
+        .login-container label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .login-container button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>CPP</h1>
+        <p>Centre Pointe Manager</p>
+        <p>Welcome!</p>
+        <form action="YOUR_LOGIN_ENDPOINT" method="POST">
+            <label for="username">User:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Pass:</label>
+            <input type="password" id="password" name="password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
