@@ -1,5 +1,6 @@
 from django.db import models
 
+#TODO: MIGRATE THE MODELS FROM THE DATABASE CLASS HERE
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
     quantity = models.PositiveIntegerField(default=0)

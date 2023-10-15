@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect
 from .models import Ingredient, RestockRecord
 from .forms import RestockForm
 
+#TODO: ENSURE URLS ARE WORKING AS INTENDED
+
+#TODO: MAKE THIS WORK WITH THE NEW DATABASE SCHEMA
 def view_ingredients(request):
     ingredients = Ingredient.objects.all()
     return render(request, 'ingredients.html', {'ingredients': ingredients})
 
+#TODO: MAKE THIS WORK WITH NEW DATABASE SCHEMA
 def restock_ingredient(request):
     if request.method == "POST":
         form = RestockForm(request.POST)
