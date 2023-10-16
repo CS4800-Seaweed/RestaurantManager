@@ -20,7 +20,10 @@ class Recipe(models.Model):
     recipe_name = models.CharField('recipe name', max_length=100)
 
     #is it helpful for these to be ordered?
+    #I remember chef saying it would be helpful to have a gui, so it WOULD be helpful to order these
     class Meta:
+        indexes = [models.Index(fields=['recipe_name'])]
+        ordering = ['-recipe_name']
         verbose_name = 'recipe'
         verbose_name_plural = 'recipes'
 
