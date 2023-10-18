@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from database.models import Restaurants, Restaurant, Worker
+from .models import Company, Worker
 
 # Create your views here.
 def login_view(request):
