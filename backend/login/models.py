@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Company(models.Model):
-    restaurant_id = models.BigAutoField('company id', primary_key=True)
+    company_id = models.BigAutoField('company id', primary_key=True)
     name = models.CharField('name', max_length=100)
 
     class Meta:

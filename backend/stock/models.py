@@ -1,12 +1,8 @@
 from django.db import models
-
-#TODO: MIGRATE THE MODELS FROM THE DATABASE CLASS HERE
-from django.db import models
 from login.models import Company
 
 #TODO: ADD CUSTOM MANAGERS WHERE HELPFUL
 #custom managers
-
 
 #TODO: ADD get_absolute_url() METHOD WHERE NECESSARY
 
@@ -98,7 +94,7 @@ class ShipmentSupply(models.Model):
         verbose_name = 'active shipment supply association'
         verbose_name_plural = 'active shipment supply associations'
 
-     
+#TODO: MERGE THESE     
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
     quantity = models.PositiveIntegerField(default=0)
