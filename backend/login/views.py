@@ -22,3 +22,6 @@ def login_view(request):
             #return page with alteration (notify user of incorrect username, prompt to create account)
             pass
     return render(request, 'login/login.html')
+
+def register_view(request):
+    return render(request, 'login/register.html')
