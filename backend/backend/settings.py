@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-tri%v(55*@&ziu=r+uayt@3oh=80li&b=+w@x^ynyl^1gv(npr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ec2-54-215-239-242.us-west-1.compute.amazonaws.com", "localhost", "127.0.0.1"]
 #"ec2-54-215-239-242.us-west-1.compute.amazonaws.com", "localhost", "127.0.0.1"
 
 # Application definition
@@ -82,8 +82,8 @@ DATABASES = {
         'NAME': 'restaurantdb',
         'USER': 'managementwebsite',
         'PASSWORD': 'centerpointe',
-        #'HOST': 'restaurantdb.cjsgl2y4msdk.us-west-1.rds.amazonaws.com',
-        'HOST': '127.0.0.1',
+        'HOST': 'restaurantdb.cjsgl2y4msdk.us-west-1.rds.amazonaws.com',
+        #'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
