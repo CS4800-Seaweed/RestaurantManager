@@ -25,6 +25,6 @@ jobs:
             pip install -r backend/requirements.txt
     
         - name: Run Django Tests
-          run: |
-            python manage.py test
+          working-directory: ./myproject
+          run:  python manage.py test
       
