@@ -5,6 +5,7 @@ from .forms import RestockForm
 #TODO: ENSURE URLS ARE WORKING AS INTENDED
 
 #TODO: MAKE THIS WORK WITH THE NEW DATABASE SCHEMA
+#TODO: SEPARATE INGREDIENTS AND SUPPLIES (not important rn)
 def view_ingredients(request):
     ingredients = Ingredient.objects.all()
     return render(request, 'ingredients.html', {'ingredients': ingredients})
