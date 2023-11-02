@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile and Search Page</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 97%;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Profile button styling */
+        .profile-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .profile-btn img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        /* Search section styling */
+        .search-section {
+            margin-top: 100px;
+        }
+
+        .output-box {
+            width: 100%;
+            height: calc(100vh - 200px);
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .logout-btn {
+            display: block;
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .logout-btn:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Profile Button with Dropdown -->
+        <div class="profile-btn" onclick="toggleDropdown()">
+            <img src="https://www.cpp.edu/it/img/student-page/cppmobileapptxtfixed1.jpg" alt="Profile Picture">
+            Profile
+            <div id="dropdownContent" class="dropdown-content">
+                <p>First/Last Name: John Doe</p>
+                <p>Username: johndoe@example.com</p>
+                <!-- Logout Button -->
+                <a href="#" class="logout-btn">Log Out</a>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input type="text" placeholder="Search by Recipe">
+            <button>Search by Recipe</button>
+            <button>Search by Supply</button>
+            <!-- Output Box -->
+            <div class="output-box"></div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            var dropdown = document.getElementById("dropdownContent");
+            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+        }
+
+        // Close the dropdown if clicked outside
+        window.onclick = function(event) {
+            var dropdown = document.getElementById("dropdownContent");
+            if (!event.target.matches('.profile-btn')) {
+                dropdown.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

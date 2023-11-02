@@ -5,4 +5,5 @@ urlpatterns = [
     #TODO: ADD VIEWING OF A SINGULAR INGREDIENT
     path('ingredients/', views.view_ingredients, name='view_ingredients'),
     path('restock/', views.restock_ingredient, name='restock_ingredient'),
+    path('search_menu/', views.search_ingredient, name='restock_ingredient'),
 ]
