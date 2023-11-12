@@ -23,7 +23,7 @@ def restock_ingredient(request):
             ingredient = restock_record.ingredient
             ingredient.quantity += restock_record.added_quantity
             ingredient.save()
-            return redirect('view_ingredients')
+            return redirect('supply_index')
     else:
         form = RestockForm()
     return render(request, 'restock.html', {'form': form})

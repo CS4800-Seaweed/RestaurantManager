@@ -50,7 +50,7 @@ class Supply(models.Model):
         return self.supply_name
     
     def get_absolute_url(self):
-        return reverse('supply_detail')
+        return reverse('supply_detail', args=[self.supply_id])
 
 #shipments are ordered by order date
 class Shipment(models.Model):
