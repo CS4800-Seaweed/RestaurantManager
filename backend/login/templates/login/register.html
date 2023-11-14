@@ -11,40 +11,46 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #e6f2e6; /* Light green background */
         }
         .container {
-            border: 1px solid #ccc;
+            border: 1px solid #98bf98; /* Soft green border */
             padding: 20px;
-            background-color: #fff;
+            background-color: #f7fff7; /* Very light green background */
             border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(76, 175, 80, 0.1); /* Subtle green shadow */
             width: 300px;
         }
-        h1 {
+        h1, h2, h3 {
             text-align: center;
+            color: #346534; /* Darker green for contrast */
         }
         label {
             display: block;
             margin-bottom: 10px;
             margin-top: 15px;
+            color: #346534; /* Darker green for contrast */
         }
         input[type="text"], input[type="password"] {
             width: 93%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #98bf98; /* Soft green border */
             border-radius: 4px;
         }
         button {
             width: 100%;
             padding: 10px;
-            background-color: #007bff;
+            background-color: #346534; /* Dark green background */
             color: #fff;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             margin-top: 15px;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        button:hover {
+            background-color: #4e804e; /* Lighter green on hover */
         }
     </style>
 </head>
@@ -71,4 +77,3 @@
     </div>
 </body>
 </html>
-

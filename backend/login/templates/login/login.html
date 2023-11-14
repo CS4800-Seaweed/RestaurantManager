@@ -11,24 +11,26 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f4f4f4;
+            background-color: #e6f2e6; /* Light green background */
         }
 
         .login-container {
-            border: 1px solid #ccc;
+            border: 1px solid #98bf98; /* Soft green border */
             padding: 20px;
             width: 300px;
-            background-color: #fff;
+            background-color: #f7fff7; /* Very light green background */
             text-align: center;
         }
 
         .login-container h1 {
             margin: 0;
+            color: #346534; /* Darker green for contrast */
         }
 
         .login-container label {
             display: block;
             margin: 10px 0;
+            color: #346534; /* Darker green for contrast */
         }
 
         .login-container input[type="text"],
@@ -36,16 +38,22 @@
             width: 92%;
             padding: 10px;
             margin: 5px 0;
+            border: 1px solid #98bf98; /* Soft green border */
         }
 
         .login-container button {
             padding: 10px 15px;
-            background-color: #333;
+            background-color: #346534; /* Dark green background */
             color: #fff;
             border: none;
             cursor: pointer;
             display: block;
             margin: 10px auto;
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .login-container button:hover {
+            background-color: #4e804e; /* Lighter green on hover */
         }
     </style>
 </head>

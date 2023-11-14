@@ -11,6 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #e6f2e6; /* Light green background */
         }
 
         .container {
@@ -27,9 +28,10 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #98bf98; /* Soft green border */
             border-radius: 5px;
             cursor: pointer;
+            background-color: #f7fff7; /* Very light green background */
         }
 
         .profile-btn img {
@@ -44,8 +46,8 @@
             position: absolute;
             top: 60px;
             right: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
+            border: 1px solid #98bf98; /* Soft green border */
+            background-color: #f7fff7; /* Very light green background */
             padding: 10px;
             width: 200px;
             border-radius: 5px;
@@ -60,14 +62,25 @@
         .output-box {
             width: 100%;
             height: calc(100vh - 200px);
-            border: 1px solid #ccc;
+            border: 1px solid #98bf98; /* Soft green border */
+            overflow-y: auto; /* Enables vertical scrolling if content overflows */
             padding: 10px;
             margin-top: 10px;
+            background-color: #fff; /* White background for contrast */
+        }
+
+        /* Recipe card styling */
+        .recipe-card {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
         }
 
         .logout-btn {
             display: block;
-            background-color: #f44336;
+            background-color: #346534; /* Dark green background */
             color: white;
             text-align: center;
             border-radius: 5px;
@@ -78,7 +91,7 @@
         }
 
         .logout-btn:hover {
-            background-color: #d32f2f;
+            background-color: #4e804e; /* Lighter green on hover */
         }
     </style>
 </head>
@@ -103,8 +116,47 @@
             <input type="text" placeholder="Search by Recipe">
             <button>Search by Recipe</button>
             <button>Search by Supply</button>
-            <!-- Output Box -->
-            <div class="output-box"></div>
+            <!-- Output Box with recipe cards -->
+            <div class="output-box">
+                <!-- Example Recipe Card -->
+                <div class="recipe-card">
+                    <h4>Classic Tomato Soup</h4>
+                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
+                </div>
+                <!-- More recipe cards can be added here -->
+                <div class="recipe-card">
+                    <h4>Hearty Vegetable Stew</h4>
+                    <p>A warming stew packed with a variety of vegetables like carrots, potatoes, and green beans. Seasoned with rosemary and thyme.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Spiced Lentil Curry</h4>
+                    <p>A flavorful lentil curry made with a blend of spices including turmeric, cumin, and coriander. Served best with rice or naan.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Garlic Butter Shrimp Pasta</h4>
+                    <p>Al dente pasta tossed with sautéed shrimp in a rich garlic butter sauce, sprinkled with parsley and parmesan.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Maple Glazed Salmon</h4>
+                    <p>Oven-baked salmon with a sweet maple syrup glaze, accompanied by roasted asparagus and a sprinkle of sesame seeds.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Classic Tomato Soup</h4>
+                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Classic Tomato Soup</h4>
+                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Classic Tomato Soup</h4>
+                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
+                </div>
+                <div class="recipe-card">
+                    <h4>Classic Tomato Soup</h4>
+                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -120,9 +172,18 @@
             if (!event.target.matches('.profile-btn')) {
                 dropdown.style.display = "none";
             }
-        }
-    </script>
-
-</body>
-
-</html>
+               // Close the dropdown if clicked outside
+               window.onclick = function(event) {
+                var dropdown = document.getElementById("dropdownContent");
+                if (!event.target.matches('.profile-btn')) {
+                    if (dropdown.style.display === "block") {
+                        dropdown.style.display = "none";
+                    }
+                }
+            }
+        </script>
+    
+    </body>
+    
+    </html>
+    
