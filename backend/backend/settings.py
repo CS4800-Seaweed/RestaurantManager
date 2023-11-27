@@ -82,8 +82,8 @@ DATABASES = {
         'NAME': 'restaurantdb',
         'USER': 'managementwebsite',
         'PASSWORD': 'centerpointe',
-        'HOST': 'restaurantdb.cjsgl2y4msdk.us-west-1.rds.amazonaws.com',
-        #'HOST': '127.0.0.1',
+        #'HOST': 'restaurantdb.cjsgl2y4msdk.us-west-1.rds.amazonaws.com',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }

@@ -26,5 +26,5 @@ def restock_ingredient(request):
             return redirect('supply_index')
     else:
         form = RestockForm()
-    return render(request, 'restock.html', {'form': form})
+    return render(request, 'stock/restock.html', {'form': form})
 
