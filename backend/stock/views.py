@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Ingredient, Supply
+from .models import Supply
 from .forms import RestockForm
 
 #TODO: ENSURE URLS ARE WORKING AS INTENDED
@@ -7,7 +7,7 @@ from .forms import RestockForm
 #TODO: MAKE THIS WORK WITH THE NEW DATABASE SCHEMA
 #TODO: SEPARATE INGREDIENTS AND SUPPLIES (not important rn)
 def index(request):
-    ingredients = Ingredient.objects.all()
+    ingredients = Supply.objects.all()
     return render(request, 'stock/supplies.html', {'ingredients': ingredients})
 
 def detail(request, supply_id):
