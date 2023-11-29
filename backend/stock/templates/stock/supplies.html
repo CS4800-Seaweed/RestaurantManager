@@ -1,4 +1,4 @@
 {% for ingredient in ingredients %}
-    <p>{{ ingredient.name }}: {{ ingredient.quantity }} {{ ingredient.unit }}</p>
+    <li><a href='{{ ingredient.get_absolute_url }}/'>{{ ingredient.supply_name }}</a></li>
 {% endfor %}
 <a href="{% url 'restock_ingredient' %}">Restock</a>

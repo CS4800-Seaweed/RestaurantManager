@@ -1,5 +1,6 @@
 from django.db import models
 from login.models import Company
+from django.urls import reverse
 
 #TODO: ADD CUSTOM MANAGERS WHERE HELPFUL
 #custom managers
@@ -47,6 +48,9 @@ class Supply(models.Model):
 
     def __str__(self):
         return self.supply_name
+    
+    def get_absolute_url(self):
+        return reverse('supply_detail', args=[self.supply_id])
 
 #shipments are ordered by order date
 class Shipment(models.Model):

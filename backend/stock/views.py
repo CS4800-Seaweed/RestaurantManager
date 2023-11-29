@@ -1,14 +1,18 @@
-from django.shortcuts import render, redirect
-from .models import Ingredient, RestockRecord
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Supply
 from .forms import RestockForm
 
 #TODO: ENSURE URLS ARE WORKING AS INTENDED
 
 #TODO: MAKE THIS WORK WITH THE NEW DATABASE SCHEMA
 #TODO: SEPARATE INGREDIENTS AND SUPPLIES (not important rn)
-def view_ingredients(request):
-    ingredients = Ingredient.objects.all()
-    return render(request, 'ingredients.html', {'ingredients': ingredients})
+def index(request):
+    ingredients = Supply.objects.all()
+    return render(request, 'stock/supplies.html', {'ingredients': ingredients})
+
+def detail(request, supply_id):
+    supply = get_object_or_404(Supply, pk=supply_id)
+    return render(request, 'stock/detail.html', {'supply': supply})
 
 #TODO: MAKE THIS WORK WITH NEW DATABASE SCHEMA
 def restock_ingredient(request):
@@ -19,10 +23,10 @@ def restock_ingredient(request):
             ingredient = restock_record.ingredient
             ingredient.quantity += restock_record.added_quantity
             ingredient.save()
-            return redirect('view_ingredients')
+            return redirect('supply_index')
     else:
         form = RestockForm()
-    return render(request, 'restock.html', {'form': form})
+    return render(request, 'stock/restock.html', {'form': form})
 
 def search_ingredient(request):
     return render(request, 'stock/search_menu.html')

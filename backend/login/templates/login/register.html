@@ -59,7 +59,8 @@
         <h1>CPP</h1>
         <h2>Centre Pointe Manager</h2>
         <h3>Register New User</h3>
-        <form action="/register" method="post">
+        <form action="/register/" method="post">
+            {% csrf_token %}
             <label for="fullname">First/Last Name:</label>
             <input type="text" id="fullname" name="fullname" required>
 
