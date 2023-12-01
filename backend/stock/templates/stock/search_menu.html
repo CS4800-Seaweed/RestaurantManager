@@ -113,9 +113,10 @@
 
         <!-- Search Section -->
         <div class="search-section">
-            <input type="text" placeholder="Search by Recipe">
-            <button>Search by Recipe</button>
-            <button>Search by Supply</button>
+            <form method="get" action="{% url 'search_supply' %}">
+                {{ form.as_p }}
+                <button type="submit">Search</button>
+            </form>
             <!-- Output Box with recipe cards -->
             <div class="output-box">
                 <!-- Example Recipe Card -->
@@ -187,9 +188,9 @@
                     }
                 }
             }
-        </script>
+    </script>
     
-    </body>
+</body>
     
-    </html>
+</html>
     

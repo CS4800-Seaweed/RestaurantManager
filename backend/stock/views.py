@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Supply
-from .forms import RestockForm
+from .forms import RestockForm, SearchForm
 
 #TODO: ENSURE URLS ARE WORKING AS INTENDED
 
@@ -29,6 +29,12 @@ def restock_ingredient(request):
     return render(request, 'stock/restock.html', {'form': form})
 
 def search_ingredient(request):
+    form = SearchForm(request.GET)
     ingredients = Supply.objects.all()
-    return render(request, 'stock/search_menu.html', {'ingredients': ingredients})
+
+    if form.is_valid() and form.cleaned_data['search_term']:
+        search_term = form.cleaned_data['search_term']
+        ingredients = Supply.objects.filter(supply_name__icontains=search_term)
+
+    return render(request, 'stock/search_menu.html', {'form': form, 'ingredients': ingredients})
 
