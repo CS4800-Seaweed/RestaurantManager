@@ -39,6 +39,7 @@ class Supply(models.Model):
     resupply = models.BooleanField('in stock')
     supply_name = models.CharField('supply name', max_length=5000)
     supply_type = models.CharField(choices=SUPPLY_TYPE, max_length=20, verbose_name='supply type')
+    supply_description = models.CharField('supply description', max_length=5000, default='')
 
     class Meta:
         indexes = [models.Index(fields=['supply_name'])]

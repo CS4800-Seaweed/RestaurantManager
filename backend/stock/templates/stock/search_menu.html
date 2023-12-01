@@ -119,6 +119,12 @@
             <!-- Output Box with recipe cards -->
             <div class="output-box">
                 <!-- Example Recipe Card -->
+                {% for ingredient in ingredients %}
+                <div class="recipe-card">
+                    <h4><a href='{{ ingredient.get_absolute_url }}'>{{ ingredient.supply_name }}</a></h4>
+                    <p>{{ingredient.supply_description}}</p>
+                </div>
+                {% endfor %}
                 <div class="recipe-card">
                     <h4>Classic Tomato Soup</h4>
                     <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
