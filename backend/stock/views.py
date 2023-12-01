@@ -28,3 +28,6 @@ def restock_ingredient(request):
         form = RestockForm()
     return render(request, 'stock/restock.html', {'form': form})
 
+def search_ingredient(request):
+    return render(request, 'stock/search_menu.html')
+
