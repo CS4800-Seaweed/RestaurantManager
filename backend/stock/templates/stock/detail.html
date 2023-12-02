@@ -1,7 +1,73 @@
-<h1>{{ supply.supply_name }}</h1>
-    <p>
-        <li><b>Location</b>: {{ supply.storage_location }}</li>
-        <li><b>Amount</b>: {{ supply.quantity }} {{ supply.quantity_units }}</li>
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta viewport="width=device-width, initial-scale=1.0">
+    <title>{{ supply.supply_name }} Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
 
-<a href="{% url 'search_supply' %}">back</a>
+        .detail-container {
+            background-color: white;
+            border: 1px solid #346534; /* Dark forest green */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .detail-container h1 {
+            color: #346534; /* Dark forest green */
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .detail-list li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .detail-list b {
+            color: #333;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #346534; /* Dark forest green */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #4e804e; /* Slightly darker green */
+        }
+    </style>
+</head>
+<body>
+    <div class="detail-container">
+        <h1>{{ supply.supply_name }}</h1>
+        <ul class="detail-list">
+            <li><b>Location</b>: {{ supply.storage_location }}</li>
+            <li><b>Amount</b>: {{ supply.quantity }} {{ supply.quantity_units }}</li>
+        </ul>
+        <a href="{% url 'search_supply' %}" class="back-button">Back</a>
+    </div>
+</body>
+</html>
