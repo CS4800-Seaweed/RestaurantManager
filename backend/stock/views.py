@@ -1,11 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Supply
-from .forms import RestockForm, SearchForm
+from .forms import RestockForm, SearchForm, AddForm
 
 #TODO: ENSURE URLS ARE WORKING AS INTENDED
 
 #TODO: MAKE THIS WORK WITH THE NEW DATABASE SCHEMA
 #TODO: SEPARATE INGREDIENTS AND SUPPLIES (not important rn)
+def addSupply(request):
+    if request.method == "POST":
+        form = AddForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('search_supply')
+    else:
+        form = AddForm()
+
+    return render(request, 'stock/add_supply.html', {'form': form})
+
 def index(request):
     ingredients = Supply.objects.all()
     return render(request, 'stock/supplies.html', {'ingredients': ingredients})
@@ -20,10 +31,10 @@ def restock_ingredient(request):
         form = RestockForm(request.POST)
         if form.is_valid():
             restock_record = form.save()
-            ingredient = restock_record.ingredient
-            ingredient.quantity += restock_record.added_quantity
-            ingredient.save()
-            return redirect('supply_index')
+            supply = restock_record.supply
+            supply.quantity += restock_record.added_quantity
+            supply.save()
+            return redirect('search_supply')
     else:
         form = RestockForm()
     return render(request, 'stock/restock.html', {'form': form})

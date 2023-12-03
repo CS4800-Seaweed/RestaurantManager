@@ -6,4 +6,5 @@ urlpatterns = [
     path('<int:supply_id>/', views.detail, name='supply_detail'),
     path('restock/', views.restock_ingredient, name='restock_ingredient'),
     path('search_menu/', views.search_ingredient, name='search_supply'),
+    path('add/', views.addSupply, name='add_supply')
 ]
