@@ -68,6 +68,7 @@
             <li><b>Amount</b>: {{ supply.quantity }} {{ supply.quantity_units }}</li>
         </ul>
         <a href="{% url 'search_supply' %}" class="back-button">Back</a>
+        <a href="{% url 'restock_specific' supply_id=supply.supply_id %}" class="back-button">Restock</a>
     </div>
 </body>
 </html>
