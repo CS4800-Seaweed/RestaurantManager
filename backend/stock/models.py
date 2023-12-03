@@ -99,15 +99,6 @@ class ShipmentSupply(models.Model):
         verbose_name = 'active shipment supply association'
         verbose_name_plural = 'active shipment supply associations'
 
-#TODO: MERGE THESE     
-#this is now all part of supply
-'''
-class Ingredient(models.Model):
-    name = models.CharField(max_length=200)
-    quantity = models.PositiveIntegerField(default=0)
-    unit = models.CharField(max_length=50)
-'''
-
 class RestockRecord(models.Model):
     supply = models.ForeignKey(Supply, on_delete=models.CASCADE)
     added_quantity = models.PositiveIntegerField()
