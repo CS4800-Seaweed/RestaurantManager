@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centre Pointe Manager</title>
+    <style>
+        /* White and forest green theme */
+        body, html {
+            height: 100%; /* Full height */
+            background-color: #FFFFFF; /* White */
+            color: #014421; /* Forest Green */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Distribute space */
+            height: 90%; /* Full height */
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            padding: 30px 0;
+        }
+
+        h1 {
+            color: #014421; /* Forest Green */
+            margin: 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 20px 30px;
+            margin: 10px;
+            background-color: #014421; /* Forest Green */
+            color: #FFFFFF; /* White */
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #026432; /* Darker Forest Green */
+        }
+
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .description {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: rgba(1, 68, 33, 0.1); /* Light Forest Green */
+            border-radius: 5px;
+        }
+
+        footer {
+            padding: 20px 0;
+            background-color: #014421; /* Forest Green */
+            color: #FFFFFF; /* White */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Centre Pointe Manager</h1>
+        </header>
+
+        <div class="description">
+            <p>Welcome to the Centre Pointe management system. Use the navigation buttons to manage recipes, stock, and other features.</p>
+        </div>
+
+        <nav>
+            <button class="button">Recipes</button>
+            <button class="button">Stock</button>
+            <button class="button">Features</button>
+            <button class="button">Log Out</button>
+        </nav>
+
+        <footer>
+            <p>Cal Poly Pomona © 2023</p>
+        </footer>
+    </div>
+
+</body>
+</html>
