@@ -93,6 +93,27 @@
         .logout-btn:hover {
             background-color: #4e804e; /* Lighter green on hover */
         }
+
+        .right-btn {
+            display: block;
+            position: absolute;
+            right: 10px;
+            top: 60px; /* Starting position, adjust as needed */
+            background-color: #346534; /* Dark green background */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            width: 100px; /* Fixed width */
+            transition: background-color 0.3s ease;
+        }
+
+        .right-btn:hover {
+            background-color: #4e804e; /* Lighter green on hover */
+        }
     </style>
 </head>
 
@@ -110,6 +131,12 @@
                 <a href="#" class="logout-btn">Log Out</a>
             </div>
         </div>
+
+        <!-- Restock Button -->
+        <a href="restock.html" class="right-btn">Restock</a>
+
+        <!-- Add Supply Button -->
+        <a href="add_supply.html" class="right-btn" style="top: 100px;">Add Supply</a>
 
         <!-- Search Section -->
         <div class="search-section">
