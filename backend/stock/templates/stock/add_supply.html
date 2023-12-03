@@ -1,5 +1,68 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Form</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e6f2e6; /* Light green background */
+        }
+
+        .container {
+            width: 97%;
+            padding: 20px;
+            margin: auto; /* Center the container */
+        }
+
+        /* Form styling */
+        form {
+            background-color: #f7fff7; /* Very light green background */
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #98bf98; /* Soft green border */
+        }
+
+        /* Button styling */
+        .form-button {
+            background-color: #346534; /* Dark green background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .form-button:hover {
+            background-color: #4e804e; /* Lighter green on hover */
+        }
+
+        /* Button container */
+        .form-actions {
+            padding-top: 10px; /* Space above buttons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Items</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="form-actions">
+                <button type="submit" class="form-button">Add</button>
+                <a href="{% url 'search_supply' %}" class="form-button">Back to Menu</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
