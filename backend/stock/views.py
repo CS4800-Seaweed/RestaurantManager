@@ -17,15 +17,17 @@ def addSupply(request):
 
     return render(request, 'stock/add_supply.html', {'form': form})
 
+
 def index(request):
     ingredients = Supply.objects.all()
     return render(request, 'stock/supplies.html', {'ingredients': ingredients})
+
 
 def detail(request, supply_id):
     supply = get_object_or_404(Supply, pk=supply_id)
     return render(request, 'stock/detail.html', {'supply': supply})
 
-#TODO: MAKE THIS WORK WITH NEW DATABASE SCHEMA
+
 def restock_ingredient(request):
     if request.method == "POST":
         form = RestockForm(request.POST)
@@ -38,6 +40,25 @@ def restock_ingredient(request):
     else:
         form = RestockForm()
     return render(request, 'stock/restock.html', {'form': form})
+
+
+def restock_specific(request, supply_id):
+    if request.method == "POST":
+        form = RestockForm(request.POST)
+        if form.is_valid():
+            restock_record = form.save()
+            supply = restock_record.supply
+            supply.quantity += restock_record.added_quantity
+            supply.save()
+            return redirect('search_supply')
+    else:
+        if supply_id:
+            supply = get_object_or_404(Supply, pk=supply_id)
+            form = RestockForm(initial={'supply': supply})
+        else:
+            form = RestockForm()
+    return render(request, 'stock/restock.html', {'form': form})
+            
 
 def search_ingredient(request):
     form = SearchForm(request.GET)

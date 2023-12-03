@@ -13,4 +13,5 @@ class RestockForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search_term = forms.CharField(max_length=500, required=False)
+
     
