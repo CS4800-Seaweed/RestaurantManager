@@ -139,9 +139,9 @@
             <img src="https://www.cpp.edu/it/img/student-page/cppmobileapptxtfixed1.jpg" alt="Profile Picture">
             Profile
             <div id="dropdownContent" class="dropdown-content">
-                <p>First Name: Sea</p>
-                <p>Last Name: Weed</p>
-                <p>Username: seaweed@example.com</p>
+                <p>{{ user }}</p>
+                <p>{{ user.username }}</p>
+                <p>{{ user.email }}</p>
                 <!-- Logout Button -->
                 <a href="{% url 'login:login_view' %}" class="logout-btn">Log Out</a>
             </div>

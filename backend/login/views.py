@@ -1,6 +1,7 @@
+from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
-from django.urls import reverse
 from .models import Company, Worker
+from django.contrib.auth import get_user_model
 import re
 
 
@@ -14,24 +15,15 @@ def login_view(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
 
-        worker = Worker.objects.filter(username=username)
+        worker = authenticate(request, username=username, password=password)
         print("worker:", worker)
-        if len(worker) == 1:
-            if password == worker[0].user_password:
-                return redirect('stock:search_supply')
-                pass
-            else:
-                return render(request, 'login/login.html')
-                context['login_failed'] = True
-                pass
-        elif len(worker) > 1:
-            print("ERROR OUR WORKER PASSWORD IS NOT UNIQUE, WE WOO WE WOO")
-            context['login_failed'] = True
-        else:
-            #return page with alteration (notify user of incorrect username, prompt to create account)
+        if worker is not None:
+            login(request, worker)
+            return redirect('stock:search_supply')
             pass
+        else:
             context['login_failed'] = True
-    return render(request, 'login/login.html')
+    return render(request, 'login/login.html', context)
 
 def register_view(request):
     companies = Company.objects.all()
@@ -53,9 +45,10 @@ def register_view(request):
         password = request.POST.get("password")
         confirmpass = request.POST.get("confirmpass")
 
+        Workers = get_user_model()
+
         if password == confirmpass and not Worker.objects.filter(username=username).exists() and not Worker.objects.filter(email=email).exists():
-            new_worker = Worker(username=username, restaurant=company, first_name=firstname, last_name=lastname, email=email, user_password=confirmpass)
-            new_worker.save()
+            Workers.objects.create_user(username=username, restaurant=company, first_name=firstname, last_name=lastname, email=email, password=confirmpass)
             return redirect('login:login_view')
     return render(request, 'login/register.html')
 
