@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import Company, Worker
 import re
+
 
 # Create your views here.
 def login_view(request):
@@ -16,7 +18,7 @@ def login_view(request):
         print("worker:", worker)
         if len(worker) == 1:
             if password == worker[0].user_password:
-                return render(request, 'stock/search_menu.html')
+                return redirect('stock:search_supply')
                 pass
             else:
                 return render(request, 'login/login.html')
@@ -54,7 +56,7 @@ def register_view(request):
         if password == confirmpass and not Worker.objects.filter(username=username).exists() and not Worker.objects.filter(email=email).exists():
             new_worker = Worker(username=username, restaurant=company, first_name=firstname, last_name=lastname, email=email, user_password=confirmpass)
             new_worker.save()
-            return render(request, 'login/login.html')
+            return redirect('login:login_view')
     return render(request, 'login/register.html')
 
 def mainmenu_view(request):

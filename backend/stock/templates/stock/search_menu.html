@@ -147,13 +147,13 @@
         </div>
 
         <div class="button-group">
-            <a href="{% url 'restock_ingredient' %}" class="center-btn">Restock</a>
-            <a href="{% url 'add_supply' %}" class="center-btn">Add Supply</a>
+            <a href="{% url 'stock:restock_ingredient' %}" class="center-btn">Restock</a>
+            <a href="{% url 'stock:add_supply' %}" class="center-btn">Add Supply</a>
         </div>
 
         <!-- Search Section -->
         <div class="search-section">
-            <form method="get" action="{% url 'search_supply' %}">
+            <form method="get" action="{% url 'stock:search_supply' %}">
                 {{ form.as_p }}
                 <button type="submit">Search</button>
             </form>

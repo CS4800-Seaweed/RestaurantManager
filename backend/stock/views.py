@@ -11,7 +11,7 @@ def addSupply(request):
         form = AddForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('search_supply')
+            return redirect('stock:search_supply')
     else:
         form = AddForm()
 
@@ -22,7 +22,7 @@ def deleteSupply(request, supply_id):
 
     if request.method == 'POST':
         supply.delete()
-        return redirect('search_supply')
+        return redirect('stock:search_supply')
 
     return render(request, 'stock/delete_supply.html', {'supply': supply})
 
@@ -44,7 +44,7 @@ def restock_ingredient(request):
             supply = restock_record.supply
             supply.quantity += restock_record.added_quantity
             supply.save()
-            return redirect('search_supply')
+            return redirect('stock:search_supply')
     else:
         form = RestockForm()
     return render(request, 'stock/restock.html', {'form': form})
@@ -58,7 +58,7 @@ def restock_specific(request, supply_id):
             supply = restock_record.supply
             supply.quantity += restock_record.added_quantity
             supply.save()
-            return redirect('search_supply')
+            return redirect('stock:search_supply')
     else:
         if supply_id:
             supply = get_object_or_404(Supply, pk=supply_id)

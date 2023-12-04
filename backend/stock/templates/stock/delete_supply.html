@@ -63,9 +63,9 @@
 <body>
     <div class="detail-container">
         <h1>Delete {{ supply.supply_name }}?</h1>
-        <form method="post" action="{% url 'delete_supply' supply.supply_id %}">
+        <form method="post" action="{% url 'stock:delete_supply' supply.supply_id %}">
             {% csrf_token %}
-            <a href="{% url 'supply_detail' supply.supply_id %}" class="back-button">Cancel</a>
+            <a href="{% url 'stock:supply_detail' supply.supply_id %}" class="back-button">Cancel</a>
             <button type="submit" class="back-button">Delete</button>
         </form>
         

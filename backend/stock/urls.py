@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name='stock'
+
 urlpatterns = [
     path('', views.index, name='supply_index'),
     path('<int:supply_id>/', views.detail, name='supply_detail'),
