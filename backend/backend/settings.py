@@ -83,8 +83,8 @@ DATABASES = {
         'NAME': 'restaurantdb',
         'USER': 'managementwebsite',
         'PASSWORD': 'centerpointe',
-        'HOST': 'restaurantdb.cjsgl2y4msdk.us-west-1.rds.amazonaws.com',
-        #'HOST': '127.0.0.1',
+        #'HOST': 'restaurantdb.cjsgl2y4msdk.us-west-1.rds.amazonaws.com',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -130,3 +130,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = 'login.worker'

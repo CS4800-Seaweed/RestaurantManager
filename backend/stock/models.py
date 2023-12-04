@@ -39,6 +39,7 @@ class Supply(models.Model):
     resupply = models.BooleanField('in stock')
     supply_name = models.CharField('supply name', max_length=5000)
     supply_type = models.CharField(choices=SUPPLY_TYPE, max_length=20, verbose_name='supply type')
+    supply_description = models.CharField('supply description', max_length=5000, default='')
 
     class Meta:
         indexes = [models.Index(fields=['supply_name'])]
@@ -50,7 +51,7 @@ class Supply(models.Model):
         return self.supply_name
     
     def get_absolute_url(self):
-        return reverse('supply_detail', args=[self.supply_id])
+        return reverse('stock:supply_detail', args=[self.supply_id])
 
 #shipments are ordered by order date
 class Shipment(models.Model):
@@ -98,14 +99,11 @@ class ShipmentSupply(models.Model):
         verbose_name = 'active shipment supply association'
         verbose_name_plural = 'active shipment supply associations'
 
-#TODO: MERGE THESE     
-class Ingredient(models.Model):
-    name = models.CharField(max_length=200)
-    quantity = models.PositiveIntegerField(default=0)
-    unit = models.CharField(max_length=50)
-
 class RestockRecord(models.Model):
-    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    supply = models.ForeignKey(Supply, on_delete=models.CASCADE)
     added_quantity = models.PositiveIntegerField()
     date_restocked = models.DateTimeField(auto_now_add=True)
+
+    def supply_name(self):
+        return self.supply.supply_name
 

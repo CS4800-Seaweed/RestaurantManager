@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta viewport="width=device-width, initial-scale=1.0">
-    <title>{{ supply.supply_name }} Details</title>
+    <title>Delete {{ supply.supply_name }}?</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,7 +43,7 @@
             color: #333;
         }
 
-        .back-button, .right-button {
+        .back-button, button.back-button {
             display: inline-block;
             background-color: #346534; /* Dark forest green */
             color: white;
@@ -53,34 +53,25 @@
             border-radius: 4px;
             margin-top: 20px;
             transition: background-color 0.3s;
+            border: none; /* Removes default border for button */
+            cursor: pointer; /* Changes cursor to pointer on hover */
         }
 
-        .back-button:hover, .right-button:hover {
+        .back-button:hover, button.back-button:hover {
             background-color: #4e804e; /* Slightly darker green */
-        }
-
-        .right-button {
-            float: right; /* Aligns the button to the right */
-        }
-
-        /* Clear float */
-        .detail-container:after {
-            content: "";
-            display: block;
-            clear: both;
         }
     </style>
 </head>
 <body>
     <div class="detail-container">
-        <h1>{{ supply.supply_name }}</h1>
-        <ul class="detail-list">
-            <li><b>Location</b>: {{ supply.storage_location }}</li>
-            <li><b>Amount</b>: {{ supply.quantity }} {{ supply.quantity_units }}</li>
-        </ul>
-        <a href="{% url 'stock:search_supply' %}" class="back-button">Back</a>
-        <a href="{% url 'stock:restock_specific' supply_id=supply.supply_id %}" class="back-button">Restock</a>
-        <a href="{% url 'stock:delete_supply' supply.supply_id %}" class="right-button">Delete</a>
+        <h1>Delete {{ supply.supply_name }}?</h1>
+        <form method="post" action="{% url 'stock:delete_supply' supply.supply_id %}">
+            {% csrf_token %}
+            <a href="{% url 'stock:supply_detail' supply.supply_id %}" class="back-button">Cancel</a>
+            <button type="submit" class="back-button">Delete</button>
+        </form>
+        
+        
     </div>
 </body>
 </html>

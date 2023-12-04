@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restock Form</title>
+    <title>Add Form</title>
     <style>
         /* General styling */
         body {
@@ -27,31 +27,7 @@
             border: 1px solid #98bf98; /* Soft green border */
         }
 
-        /* Input and button styling */
-        input[type="submit"] {
-            background-color: #346534; /* Dark green background */
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #4e804e; /* Lighter green on hover */
-        }
-
-        /* Paragraph (p) styling for form elements */
-        p {
-            margin: 10px 0;
-        }
-
+        /* Button styling */
         .form-button {
             background-color: #346534; /* Dark green background */
             color: white;
@@ -71,20 +47,19 @@
         }
 
         /* Button container */
-        .button-container {
-            text-align: left;
-            margin-top: 20px;
+        .form-actions {
+            padding-top: 10px; /* Space above buttons */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Restock Items</h1>
+        <h1>Add Items</h1>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <div class="button-container">
-                <input type="submit" class="form-button" value="Restock">
+            <div class="form-actions">
+                <button type="submit" class="form-button">Add</button>
                 <a href="{% url 'stock:search_supply' %}" class="form-button">Back to Menu</a>
             </div>
         </form>

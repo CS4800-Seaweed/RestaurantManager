@@ -20,6 +20,14 @@
             position: relative;
         }
 
+        /* Style for the big header title */
+        .header-title {
+            text-align: center; /* Center the title */
+            font-size: 30px; /* Big font size */
+            margin-top: 20px; /* Space from the top of the page */
+            color: #346534; /* Color of the title, matching the theme */
+        }
+
         /* Profile button styling */
         .profile-btn {
             position: absolute;
@@ -56,7 +64,7 @@
 
         /* Search section styling */
         .search-section {
-            margin-top: 100px;
+            margin-top: 0px;
         }
 
         .output-box {
@@ -93,69 +101,72 @@
         .logout-btn:hover {
             background-color: #4e804e; /* Lighter green on hover */
         }
+
+        .button-group {
+            text-align: center; /* Center the button group */
+            position: relative; /* Relative positioning within the container */
+            padding-top: 20px; /* Space above the button group */
+        }
+
+        .center-btn {
+            display: inline-block; /* Place buttons side by side */
+            background-color: #346534; /* Dark green background */
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin: 0 10px; /* Space around each button */
+            cursor: pointer;
+            text-decoration: none; /* Remove underline from link */
+            width: 100px; /* Fixed width */
+            transition: background-color 0.3s ease;
+        }
+
+        .center-btn:hover {
+            background-color: #4e804e; /* Lighter green on hover */
+        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
+
+        <h1 class="header-title">Inventory Manager</h1>
+
         <!-- Profile Button with Dropdown -->
         <div class="profile-btn" onclick="toggleDropdown()">
             <img src="https://www.cpp.edu/it/img/student-page/cppmobileapptxtfixed1.jpg" alt="Profile Picture">
             Profile
             <div id="dropdownContent" class="dropdown-content">
-                <p>First/Last Name: John Doe</p>
-                <p>Username: johndoe@example.com</p>
+                <p>{{ user }}</p>
+                <p>{{ user.username }}</p>
+                <p>{{ user.email }}</p>
                 <!-- Logout Button -->
-                <a href="#" class="logout-btn">Log Out</a>
+                <a href="{% url 'login:login_view' %}" class="logout-btn">Log Out</a>
             </div>
+        </div>
+
+        <div class="button-group">
+            <a href="{% url 'stock:restock_ingredient' %}" class="center-btn">Restock</a>
+            <a href="{% url 'stock:add_supply' %}" class="center-btn">Add Supply</a>
         </div>
 
         <!-- Search Section -->
         <div class="search-section">
-            <input type="text" placeholder="Search by Recipe">
-            <button>Search by Recipe</button>
-            <button>Search by Supply</button>
+            <form method="get" action="{% url 'stock:search_supply' %}">
+                {{ form.as_p }}
+                <button type="submit">Search</button>
+            </form>
             <!-- Output Box with recipe cards -->
             <div class="output-box">
                 <!-- Example Recipe Card -->
+                {% for ingredient in ingredients %}
                 <div class="recipe-card">
-                    <h4>Classic Tomato Soup</h4>
-                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
+                    <h4><a href='{{ ingredient.get_absolute_url }}'>{{ ingredient.supply_name }}</a></h4>
+                    <p>{{ingredient.supply_description}}</p>
                 </div>
-                <!-- More recipe cards can be added here -->
-                <div class="recipe-card">
-                    <h4>Hearty Vegetable Stew</h4>
-                    <p>A warming stew packed with a variety of vegetables like carrots, potatoes, and green beans. Seasoned with rosemary and thyme.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Spiced Lentil Curry</h4>
-                    <p>A flavorful lentil curry made with a blend of spices including turmeric, cumin, and coriander. Served best with rice or naan.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Garlic Butter Shrimp Pasta</h4>
-                    <p>Al dente pasta tossed with sautéed shrimp in a rich garlic butter sauce, sprinkled with parsley and parmesan.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Maple Glazed Salmon</h4>
-                    <p>Oven-baked salmon with a sweet maple syrup glaze, accompanied by roasted asparagus and a sprinkle of sesame seeds.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Classic Tomato Soup</h4>
-                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Classic Tomato Soup</h4>
-                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Classic Tomato Soup</h4>
-                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
-                </div>
-                <div class="recipe-card">
-                    <h4>Classic Tomato Soup</h4>
-                    <p>A rich and creamy tomato soup, seasoned with basil and thyme. Perfect for a cozy meal.</p>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -169,21 +180,13 @@
         // Close the dropdown if clicked outside
         window.onclick = function(event) {
             var dropdown = document.getElementById("dropdownContent");
-            if (!event.target.matches('.profile-btn')) {
+            if (!event.target.matches('.profile-btn, .profile-btn *')) {
                 dropdown.style.display = "none";
             }
-               // Close the dropdown if clicked outside
-               window.onclick = function(event) {
-                var dropdown = document.getElementById("dropdownContent");
-                if (!event.target.matches('.profile-btn')) {
-                    if (dropdown.style.display === "block") {
-                        dropdown.style.display = "none";
-                    }
-                }
-            }
-        </script>
+        }
+    </script>
     
-    </body>
+</body>
     
-    </html>
+</html>
     
