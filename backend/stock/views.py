@@ -17,6 +17,14 @@ def addSupply(request):
 
     return render(request, 'stock/add_supply.html', {'form': form})
 
+def deleteSupply(request, supply_id):
+    supply = get_object_or_404(Supply, pk=supply_id)
+
+    if request.method == 'POST':
+        supply.delete()
+        return redirect('search_supply')
+
+    return render(request, 'stock/delete_supply.html', {'supply': supply})
 
 def index(request):
     ingredients = Supply.objects.all()

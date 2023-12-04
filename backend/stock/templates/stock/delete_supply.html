@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta viewport="width=device-width, initial-scale=1.0">
-    <title>{{ supply.supply_name }} Details</title>
+    <title>Delete {{ supply.supply_name }}?</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,14 +62,14 @@
 </head>
 <body>
     <div class="detail-container">
-        <h1>{{ supply.supply_name }}</h1>
-        <ul class="detail-list">
-            <li><b>Location</b>: {{ supply.storage_location }}</li>
-            <li><b>Amount</b>: {{ supply.quantity }} {{ supply.quantity_units }}</li>
-        </ul>
-        <a href="{% url 'search_supply' %}" class="back-button">Back</a>
-        <a href="{% url 'restock_specific' supply_id=supply.supply_id %}" class="back-button">Restock</a>
-        <a href="{% url 'delete_supply' supply.supply_id %}" class="back-button">Delete</a>
+        <h1>Delete {{ supply.supply_name }}?</h1>
+        <form method="post" action="{% url 'delete_supply' supply.supply_id %}">
+            {% csrf_token %}
+            <a href="{% url 'supply_detail' supply.supply_id %}" class="back-button">Cancel</a>
+            <button type="submit" class="back-button">Delete</button>
+        </form>
+        
+        
     </div>
 </body>
 </html>
