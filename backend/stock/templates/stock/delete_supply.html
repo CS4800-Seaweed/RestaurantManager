@@ -43,7 +43,7 @@
             color: #333;
         }
 
-        .back-button {
+        .back-button, button.back-button {
             display: inline-block;
             background-color: #346534; /* Dark forest green */
             color: white;
@@ -53,9 +53,11 @@
             border-radius: 4px;
             margin-top: 20px;
             transition: background-color 0.3s;
+            border: none; /* Removes default border for button */
+            cursor: pointer; /* Changes cursor to pointer on hover */
         }
 
-        .back-button:hover {
+        .back-button:hover, button.back-button:hover {
             background-color: #4e804e; /* Slightly darker green */
         }
     </style>

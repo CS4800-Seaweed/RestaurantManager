@@ -43,7 +43,7 @@
             color: #333;
         }
 
-        .back-button {
+        .back-button, .right-button {
             display: inline-block;
             background-color: #346534; /* Dark forest green */
             color: white;
@@ -55,8 +55,19 @@
             transition: background-color 0.3s;
         }
 
-        .back-button:hover {
+        .back-button:hover, .right-button:hover {
             background-color: #4e804e; /* Slightly darker green */
+        }
+
+        .right-button {
+            float: right; /* Aligns the button to the right */
+        }
+
+        /* Clear float */
+        .detail-container:after {
+            content: "";
+            display: block;
+            clear: both;
         }
     </style>
 </head>
@@ -69,7 +80,7 @@
         </ul>
         <a href="{% url 'search_supply' %}" class="back-button">Back</a>
         <a href="{% url 'restock_specific' supply_id=supply.supply_id %}" class="back-button">Restock</a>
-        <a href="{% url 'delete_supply' supply.supply_id %}" class="back-button">Delete</a>
+        <a href="{% url 'delete_supply' supply.supply_id %}" class="right-button">Delete</a>
     </div>
 </body>
 </html>

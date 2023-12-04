@@ -139,8 +139,9 @@
             <img src="https://www.cpp.edu/it/img/student-page/cppmobileapptxtfixed1.jpg" alt="Profile Picture">
             Profile
             <div id="dropdownContent" class="dropdown-content">
-                <p>First/Last Name: John Doe</p>
-                <p>Username: johndoe@example.com</p>
+                <p>First Name: Sea</p>
+                <p>Last Name: Weed</p>
+                <p>Username: seaweed@example.com</p>
                 <!-- Logout Button -->
                 <a href="#" class="logout-btn">Log Out</a>
             </div>
@@ -179,18 +180,10 @@
         // Close the dropdown if clicked outside
         window.onclick = function(event) {
             var dropdown = document.getElementById("dropdownContent");
-            if (!event.target.matches('.profile-btn')) {
+            if (!event.target.matches('.profile-btn, .profile-btn *')) {
                 dropdown.style.display = "none";
             }
-               // Close the dropdown if clicked outside
-               window.onclick = function(event) {
-                var dropdown = document.getElementById("dropdownContent");
-                if (!event.target.matches('.profile-btn')) {
-                    if (dropdown.style.display === "block") {
-                        dropdown.style.display = "none";
-                    }
-                }
-            }
+        }
     </script>
     
 </body>
