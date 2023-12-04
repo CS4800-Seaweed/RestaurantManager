@@ -4,7 +4,7 @@ from .models import RestockRecord, Supply
 class AddForm(forms.ModelForm):
     class Meta:
         model = Supply
-        fields = ['supply_name', 'storage_location', 'quantity', 'supply_description', 'supply_type', 'resupply', 'restaurant']
+        fields = ['supply_name', 'storage_location', 'quantity', 'quantity_units', 'supply_description', 'supply_type', 'resupply', 'restaurant']
 
 class RestockForm(forms.ModelForm):
     class Meta:
